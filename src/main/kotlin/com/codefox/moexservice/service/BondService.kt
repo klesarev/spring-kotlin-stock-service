@@ -18,8 +18,7 @@ class BondService(
     private val govBondClient: GovBondClient,
     private val parser: Parser
 )  {
-
-    fun getBondsFromMoex(tickersDto: TickersDto): StocksDto {
+    fun getBondsByTickers(tickersDto: TickersDto): StocksDto {
 
         val allBonds = mutableListOf<BondDto>()
         allBonds.addAll(parseCorporateBonds() as List)

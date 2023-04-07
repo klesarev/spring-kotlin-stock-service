@@ -12,8 +12,8 @@ import javax.validation.Valid
 class MoexBondController(private val bondService: BondService) {
 
     @PostMapping("/getBondsByTickers")
-    fun getBondsFromMoex(@Valid @RequestBody tickersDto: TickersDto): StocksDto {
-        return bondService.getBondsFromMoex(tickersDto)
+    fun getBondsByTickers(@Valid @RequestBody tickersDto: TickersDto): StocksDto {
+        return bondService.getBondsByTickers(tickersDto)
     }
 
     @GetMapping("/getAllBonds")
