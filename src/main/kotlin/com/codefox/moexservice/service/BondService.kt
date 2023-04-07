@@ -13,16 +13,11 @@ import org.springframework.stereotype.Service
 
 
 @Service
-class BondService()  {
-
-    @Autowired
-    lateinit var corporateBondClient: CorporateBondClient
-
-    @Autowired
-    lateinit var govBondClient: GovBondClient
-
-    @Autowired
-    lateinit var parser: Parser
+class BondService(
+    private val corporateBondClient: CorporateBondClient,
+    private val govBondClient: GovBondClient,
+    private val parser: Parser
+)  {
 
     fun getBondsFromMoex(tickersDto: TickersDto): StocksDto {
 
@@ -32,7 +27,7 @@ class BondService()  {
 
         val resultBonds = allBonds.filter { b-> tickersDto.tickers.contains(b.ticker) }
 
-
+        // вынести в mapper
         val stocks = resultBonds.map { stock ->
             Stock(
                 ticker = stock.ticker,
@@ -61,6 +56,7 @@ class BondService()  {
         allBonds.addAll(parseCorporateBonds() as List)
         allBonds.addAll(parseGovBonds() as List)
 
+        // вынести в mapper
         val stocks = allBonds.map { stock ->
             Stock(
                 ticker = stock.ticker,
@@ -77,6 +73,7 @@ class BondService()  {
 
     fun getAllCorporateBonds(): StocksDto {
 
+        // вынести в mapper
         val stocks = parseCorporateBonds()?.map { stock ->
             Stock(
                 ticker = stock.ticker,
@@ -92,6 +89,8 @@ class BondService()  {
     }
 
     fun getAllGovBonds(): StocksDto {
+
+        // вынести в mapper
         val stocks = parseGovBonds()?.map { stock ->
             Stock(
                 ticker = stock.ticker,
