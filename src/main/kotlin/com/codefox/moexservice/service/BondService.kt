@@ -52,7 +52,7 @@ class BondService()  {
     }
 
     private fun parseGovBonds(): List<BondDto>? {
-        val xmlFromMoex: String = govBondClient.getGovBonds() + "error"
+        val xmlFromMoex: String = govBondClient.getGovBonds()
         return parser.parse(xmlFromMoex)
     }
 
