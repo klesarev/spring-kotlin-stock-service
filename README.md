@@ -29,12 +29,12 @@ GET запрос - получаем список всех государстве
 {
   "localizedMessage": "Invocation failureonds.... ",
   "errorMessage": "Error Parsing XML data",
-  "code": 1
+  "errorCode": 1
 }
 ```
 - localizedMessage - стек-трейс ошибки
 - errorMessage - описание ошибки
-- code - код ошибки
+- errorCode - код ошибки
 
 ### Список кодов с ошибками
 | Код ошибки | Описание ошибки            | Статус код |

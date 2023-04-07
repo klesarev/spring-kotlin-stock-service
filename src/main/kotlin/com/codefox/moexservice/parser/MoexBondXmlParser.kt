@@ -48,7 +48,7 @@ class MoexBondXmlParser : Parser {
 
         } catch (e: Exception) {
             e.printStackTrace()
-            throw XMLParsingException(e)
+            throw XMLParsingException()
         }
         return bonds
     }
