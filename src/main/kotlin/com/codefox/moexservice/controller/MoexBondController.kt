@@ -4,6 +4,7 @@ import com.codefox.moexservice.dto.StocksDto
 import com.codefox.moexservice.dto.TickersDto
 import com.codefox.moexservice.service.BondService
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 
 @RequestMapping("/bonds")
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*
 class MoexBondController(private val bondService: BondService) {
 
     @PostMapping("/getBondsByTickers")
-    fun getBondsFromMoex(@RequestBody tickersDto: TickersDto): StocksDto {
+    fun getBondsFromMoex(@Valid @RequestBody tickersDto: TickersDto): StocksDto {
         return bondService.getBondsFromMoex(tickersDto)
     }
 

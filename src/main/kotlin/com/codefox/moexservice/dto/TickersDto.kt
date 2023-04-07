@@ -1,6 +1,10 @@
 package com.codefox.moexservice.dto
 
+import javax.validation.constraints.NotNull
+import javax.validation.constraints.Positive
+
 
 class TickersDto(
-    val tickers: List<String>
+    @NotNull(message = "Name cannot be null")
+    val tickers: List<String>,
 )

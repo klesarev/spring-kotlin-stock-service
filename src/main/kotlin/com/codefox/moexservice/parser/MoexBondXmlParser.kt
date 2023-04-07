@@ -1,8 +1,8 @@
 package com.codefox.moexservice.parser
 
 import com.codefox.moexservice.dto.BondDto
+import com.codefox.moexservice.exception.XMLParsingException
 import org.springframework.stereotype.Component
-import org.springframework.stereotype.Service
 import java.io.StringReader
 import javax.xml.XMLConstants
 import javax.xml.parsers.DocumentBuilderFactory
@@ -48,6 +48,7 @@ class MoexBondXmlParser : Parser {
 
         } catch (e: Exception) {
             e.printStackTrace()
+            throw XMLParsingException(e)
         }
         return bonds
     }
