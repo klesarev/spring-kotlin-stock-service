@@ -51,12 +51,10 @@ GET запрос - получаем список всех государстве
 Ответ при ошибке возвращает обычный 200 код, и имеет структуру 
 ```json
 {
-  "localizedMessage": "Invocation failureonds.... ",
   "errorMessage": "Error Parsing XML data",
   "errorCode": 1
 }
 ```
-- localizedMessage - стек-трейс ошибки
 - errorMessage - описание ошибки
 - errorCode - код ошибки
 
