@@ -1,5 +1,23 @@
 # spring-kotlin-stock-service
-Base Stocks service (Moex) with SpringBoot 2.6
+Base Stocks service (Moex) with SpringBoot 2.6 without Flux
+
+### Build
+
+Сначала собираем проект при помощи команды ( **_.jar_** файл будет в папке _build/libs_ )
+```shell
+./gradlew clean build
+```
+Затем собираем в docker образ 
+( предварительно нужно [скачать docker](https://www.docker.com/products/docker-desktop/) и установить)
+```shell
+docker build -t spring-boot-docker:0.0.1 .  
+```
+Затем запускаем на 8005 порту (вторая команда присваивает имя контейнеру)
+```shell
+docker run -p 8005:8005 spring-boot-docker:0.0.1
+docker run -p 8005:8005 --name=springmoexapp spring-boot-docker:0.0.1
+```
+
 
 ### Endpoints
 
