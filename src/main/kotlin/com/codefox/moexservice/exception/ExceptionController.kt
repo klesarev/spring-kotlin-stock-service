@@ -13,7 +13,7 @@ class ExceptionController : ResponseEntityExceptionHandler() {
 
     @ExceptionHandler(XMLParsingException::class)
     fun handleNotFound(e: Exception): ResponseEntity<ErrorDto> {
-        return ResponseEntity<ErrorDto>(ErrorDto(ErrorCodes.XMLError.errorMessage, 1), HttpStatus.ACCEPTED)
+        return ResponseEntity<ErrorDto>(ErrorDto(ErrorCodes.XMLError.errorMessage, 1), HttpStatus.OK)
     }
 
 }
