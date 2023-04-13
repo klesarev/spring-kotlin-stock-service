@@ -1,0 +1,17 @@
+version: '1.0'
+
+name: "microservices"
+services:
+  kotlinapp:
+    image: spring-boot-docker:0.0.1
+    container_name: springmoexapp
+    hostname: localhost
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        JAR_FILE: build/libs/*.jar
+        MAINTAINER: fox-code.ru
+    ports:
+      - "8005:8005"
+    restart: unless-stopped

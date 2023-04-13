@@ -7,7 +7,7 @@ Base Stocks service (Moex) with SpringBoot 2.6 without Flux
 ```shell
 ./gradlew clean build
 ```
-Затем собираем в docker образ 
+Затем собираем в docker образ командой
 ( предварительно нужно [скачать docker](https://www.docker.com/products/docker-desktop/) и установить)
 ```shell
 docker build -t spring-boot-docker:0.0.1 .  
@@ -24,9 +24,17 @@ docker stop springmoexapp
 
 ### Docker bash (optional)
 - `docker-compose --version` - версия установленного docker-compose
-- 
+- `docker start my_container` - стартуем контейнер по имени
+- `docker container ls` - список запущенных контейнеров
+- `dive <your-image-tag>` - смотрим что расположено по слоям в докере (утилита dive)
+
+документация по коммандам лежит тут - https://docs.docker.com/engine/reference/commandline/start/  
+скачать dive можно тут - https://github.com/wagoodman/dive
 
 ### Endpoints
+
+#### /alive
+Возвращает объект ErrorDTO с `error code: 0` если наше приложение работает
 
 #### /bonds/getBondsByTickers 
 Получить список облигаций по тикерам, в POST запросе передаем массив tickers c тикерами
