@@ -17,7 +17,14 @@ docker build -t spring-boot-docker:0.0.1 .
 docker run -p 8005:8005 spring-boot-docker:0.0.1
 docker run -p 8005:8005 --name=springmoexapp spring-boot-docker:0.0.1
 ```
+Остановить можно командой (после stop имя конейнера)
+```shell
+docker stop springmoexapp  
+```
 
+### Docker bash (optional)
+- `docker-compose --version` - версия установленного docker-compose
+- 
 
 ### Endpoints
 
